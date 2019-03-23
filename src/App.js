@@ -1,26 +1,54 @@
 import React, { Component } from 'react';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import Routes from './Routes';
+import Navigation from './components/Navigation';
+import Footer from './components/Footer';
 import './App.css';
-import Homepage from './components/Homepage'
-import { createGlobalStyle } from 'styled-components';
+
+const theme = {
+  specialFont: 'DINNextW01-Bold'
+}
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "DINNextW01-Bold";
-    src: url("./components/assets/fonts/DINNextW01-Bold.otf");
+    src: url("./assets/fonts/DINNextW01-Bold.otf") format(otf);
+  }
+
+  * {
+    outline: none;
   }
 
   body {
-    font-family: ${props => props.specialFont ? 'DINNextW01-Bold': 'Helvetica Neue'}
+    font-size: 1rem;
+  }
+  
+  html {
+    font-family: ${props => props.theme.specialFont ? 'DINNextW01-Bold': 'Helvetica Neue'};
+    box-sizing: border-box;
+    font-size: 14px;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
   }
 `;
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <GlobalStyle specialFont/>
-        <Homepage />
-      </div>
+      <ThemeProvider theme={theme}>
+        <div className="App">
+          <GlobalStyle />
+          <Navigation />
+          <Routes />
+          <Footer />
+        </div>
+      </ThemeProvider>
     );
   }
 }
