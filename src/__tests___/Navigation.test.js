@@ -6,6 +6,6 @@ describe('App Navigation', () => {
   test('renders the navigation component', () => {
     const { getByText } = render(<Navigation />);
     const navItem = getByText('VIDEOS');
-    expect(navItem).toBeDefined()
+    expect(navItem).toBeDefined();
   });
 });
