@@ -16,19 +16,19 @@ self.__precacheManifest = [
     "url": "/moviemania/static/js/runtime~main.f3ccedd2.js"
   },
   {
-    "revision": "a704f40f611df91d571a",
-    "url": "/moviemania/static/js/main.647115b9.chunk.js"
+    "revision": "08757335437696bb3d49",
+    "url": "/moviemania/static/js/main.a91455b6.chunk.js"
   },
   {
     "revision": "b238bf11421965c8ca4d",
     "url": "/moviemania/static/js/2.29888324.chunk.js"
   },
   {
-    "revision": "a704f40f611df91d571a",
+    "revision": "08757335437696bb3d49",
     "url": "/moviemania/static/css/main.18dec2b5.chunk.css"
   },
   {
-    "revision": "c83ee1098f4950817de33918792ad670",
+    "revision": "1cf2de16dba4f5693eb7ebf9c23c2a76",
     "url": "/moviemania/index.html"
   }
 ];
