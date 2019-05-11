@@ -6,7 +6,7 @@ import VideoDetails from '../components/VideoDetails';
 
 const Routes = () => (
   <Switch>
-    <Route exact path="/" component={Movies} />
+    <Route path="/" component={Movies} />
     <Route exact path="/movies" component={Movies} />
     <Route exact path="/tv" component={Tvshows} />
     <Route exact path="/tv/:videoId/" component={VideoDetails} />

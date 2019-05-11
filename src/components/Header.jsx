@@ -10,7 +10,6 @@ const HeroImage = styled.div`
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
-  /* background-image: url(${require("../assets/images/avenger_endgame.jpg")}); */
 `;
 
 const Header = (type) => (

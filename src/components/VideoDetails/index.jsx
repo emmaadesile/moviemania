@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { format } from 'date-fns';
-import { Video, PlayButton, VideoInfo } from './VideoDetailsStyles';
+import { Consumer } from '../Context';
+import Loader from '../Loader';
+import { Video, PlayButton, VideoInfo, VideoTrailer } from './VideoDetailsStyles';
 
 const baseURL = process.env.REACT_APP_BASE_URL;
 const apiKey = process.env.REACT_APP_TMDB_API_KEY;
@@ -8,6 +10,7 @@ const apiKey = process.env.REACT_APP_TMDB_API_KEY;
 class VideoDetails extends Component {
   state = {
     loading: false,
+    showVideoTrailer: false,
     error: '',
     videoDetails: {
       vote_average: '',
@@ -15,6 +18,7 @@ class VideoDetails extends Component {
       overview: '',
       videoTitle: '',
       releaseDate: '',
+      trailerId: '',
     }
   }
 
@@ -22,17 +26,30 @@ class VideoDetails extends Component {
     this.fetchVideoDetails();
   }
 
+  /** 
+   * Fetch the detailes of video
+   * @returns null
+  */
   fetchVideoDetails = () => {
     const { url, params: { videoId } } = this.props.match;
     const regEx = /movie/;
     const videoType = regEx.test(url) ? 'movie' : 'tv'
 
-    const endpoint = `${baseURL}/${videoType}/${videoId}?api_key=${apiKey}&language=en-US`;
-      
-    fetch(endpoint)
-      .then(resp => resp.json())
-      .then(details => this.storeVideoDetails(details))
-      .catch(error => this.setState({error}));
+    const videoDetailsEndpoint = `${baseURL}/${videoType}/${videoId}?api_key=${apiKey}&append_to_response=credits`;
+    const videoTrailerEndpoint = `${baseURL}/${videoType}/${videoId}?api_key=${apiKey}&append_to_response=videos`;
+
+    const fetchedVideoDetails = Promise.all([
+      fetch(videoDetailsEndpoint).then(resp => resp.json()),
+      fetch(videoTrailerEndpoint).then(resp => resp.json())
+    ]);
+
+    fetchedVideoDetails.then(data => this.storeVideoDetails(data));
+  }
+
+  toggleVideoTrailer = () => {
+    this.setState(prevState => ({
+      showVideoTrailer: !prevState.showVideoTrailer
+    }));
   }
 
   storeVideoDetails = data => {
@@ -44,7 +61,10 @@ class VideoDetails extends Component {
       title,
       first_air_date,
       release_date,
-    } = data;
+    } = data[0];
+
+    const {videos: { results }} = data[1];
+    const trailerId = results[0].key;
 
     const { url } = this.props.match;
     const regEx = /movie/;
@@ -69,51 +89,89 @@ class VideoDetails extends Component {
         overview,
         videoTitle,
         releaseDate,
+        trailerId,
       }
     });
   }
 
   render() {
-    const { 
+    const {
+      showVideoTrailer,
+      videoDetails,
       videoDetails: {
         backdrop_path,
         videoTitle,
         overview,
         releaseDate,
         vote_average,
+        trailerId,
       } 
     } = this.state;
       
     return (
-      <Video>
-        <div className="backdrop">
-          <img
-            src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
-            alt="video_backdrop"
-          />
-          <div className='backdropBg'>
-            <div>
-              <VideoInfo>
-                <h1>{videoTitle}</h1>
-                <p className='releaseDate'>Release Date: {releaseDate}</p>
-                <p>{overview}</p>
-              </VideoInfo>
+      <>
+        {Object.keys(videoDetails).length === 0
+          ? <Loader />
+          : (
+            <>
+              <Video>
+                <div className="backdrop">
+                  <img
+                    src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
+                    alt="video_backdrop"
+                  />
+                  <div className='backdropBg'>
+                    <div>
+                      <VideoInfo>
+                        <h1>{videoTitle}</h1>
+                        <p className='releaseDate'>Release Date: {releaseDate}</p>
+                        <p>{overview}</p>
+                      </VideoInfo>
 
-              <div className='moreDetails'>
-                <PlayButton>
-                  <i className="fas fa-play"></i>
-                  <span>Play Trailer</span>
-                </PlayButton>
+                      <div className='moreDetails'>
+                        <PlayButton
+                          type='button'
+                          onClick={this.toggleVideoTrailer}
+                          aria-labelledby='play-button'
+                        >
+                          <i className="fas fa-play"></i>
+                          <span>Play Trailer</span>
+                        </PlayButton>
 
-                <div className='videoRating'>
-                  <i className="fas fa-fire"></i>
-                  <span>{vote_average} / 10</span>
+                        <div className='videoRating'>
+                          <i className="fas fa-fire"></i>
+                          <span>{vote_average} / 10</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Video>
+              </Video>
+              {showVideoTrailer && (
+                <VideoTrailer>
+                  <div className="closeTrailer">
+                    <i
+                      className="fa fa-times"
+                      aria-labelledby="close-trailer"
+                      onClick={this.toggleVideoTrailer}
+                    >
+                    </i>
+                  </div>
+                  <iframe
+                    src={`https://www.youtube.com/embed/${trailerId}`}
+                    title= "videoTrailer"
+                    allowFullScreen
+                    width="1200"
+                    height="650"
+                    frameBorder="0"
+                  >
+                  </iframe>
+                </VideoTrailer>
+              )}
+            </>
+          )
+        }
+      </>
     );
   }
 }

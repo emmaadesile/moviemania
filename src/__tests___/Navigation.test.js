@@ -5,7 +5,9 @@ import Navigation from '../components/Navigation';
 describe('App Navigation', () => {
   test('renders the navigation component', () => {
     const { getByText } = render(<Navigation />);
-    const navItem = getByText('VIDEOS');
-    expect(navItem).toBeDefined();
+    const moviesLink = getByText(/movies/i);
+    const tvShowLink = getByText(/tv shows/i);
+    expect(moviesLink).toBeDefined();
+    expect(tvShowLink).toBeDefined();
   });
 });

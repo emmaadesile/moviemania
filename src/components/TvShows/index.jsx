@@ -57,7 +57,7 @@ class Tvshows extends React.Component {
           )
         }
       </Wrapper>
-    )
+    );
   }
 };
 

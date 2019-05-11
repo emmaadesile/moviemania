@@ -56,7 +56,6 @@ const PlayButton = styled.button`
   transition: 0.5s background-color cubic-bezier(0.075, 0.82, 0.165, 1);
   color: white;
   border: none;
-  align-self: end;
   font-size: 0.9rem;
 
   &:hover {
@@ -70,7 +69,6 @@ const PlayButton = styled.button`
 
 const VideoInfo = styled.div`
   max-width: 450px;
-  align-self: start;
 
   h1 {
     font-size: 3.2rem;
@@ -91,4 +89,45 @@ const VideoInfo = styled.div`
   }
 `;
 
-export { Video, PlayButton, VideoInfo };
+const VideoTrailer = styled.div`
+  left: 0px;
+  top: 90px;
+  z-index: 100;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: rgba(0,0,0,.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+
+  iframe {
+    /* position: fixed; */
+  }
+
+  .closeTrailer {
+    background: #000;
+    width: 1200px;
+    height: 50px;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: end;
+    align-items: center;
+
+    .fa-times {
+      font-size: 20px;
+      color: #555;
+      font-weight: 900;
+      cursor: pointer;
+      margin-right: 10px;
+
+      &:hover {
+        color: #777;
+      }
+    }
+  }
+`;
+
+export { Video, PlayButton, VideoInfo, VideoTrailer };
