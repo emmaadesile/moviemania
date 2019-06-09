@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { format } from 'date-fns';
-import { Consumer } from '../Context';
 import Loader from '../Loader';
 import { Video, PlayButton, VideoInfo, VideoTrailer } from './VideoDetailsStyles';
 
@@ -31,7 +30,10 @@ class VideoDetails extends Component {
    * @returns null
   */
   fetchVideoDetails = () => {
-    const { url, params: { videoId } } = this.props.match;
+    const {
+      url,
+      params:{ videoId }} = this.props.match;
+
     const regEx = /movie/;
     const videoType = regEx.test(url) ? 'movie' : 'tv'
 
