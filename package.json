@@ -4,8 +4,10 @@
   "private": true,
   "homepage": "http://emmaadesile.github.io/moviemania",
   "dependencies": {
+    "@reach/router": "^1.2.1",
     "date-fns": "^1.30.1",
     "node-sass": "^4.11.0",
+    "prettier": "^1.18.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-pose": "^4.0.8",
@@ -25,7 +27,8 @@
     "heroku-postbuild": "yarn build",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build",
-    "test:dev": "jest --coverage"
+    "test:dev": "jest --coverage",
+    "format": "prettier \"src/**/*.js\" --write"
   },
   "eslintConfig": {
     "extends": "react-app"

@@ -1,7 +1,6 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Video = styled.div`
-
   img {
     max-height: 100%;
     max-width: 100%;
@@ -25,7 +24,7 @@ const Video = styled.div`
     height: inherit;
     position: absolute;
     top: 92px;
-    background-color: rgba(0,0,0,0.7);
+    background-color: rgba(0, 0, 0, 0.7);
 
     .moreDetails {
       display: grid;
@@ -34,7 +33,7 @@ const Video = styled.div`
 
       .videoRating {
         color: #ddd;
-  
+
         .fa-fire {
           border-radius: 50%;
           border: 1px solid #ddd;
@@ -72,12 +71,12 @@ const VideoInfo = styled.div`
 
   h1 {
     font-size: 3.2rem;
-    font-family: 'DINNextW01-Bold';
+    font-family: "DINNextW01-Bold";
     text-align: left;
   }
 
   p {
-    font-family: 'Helvetica Neue';
+    font-family: "Helvetica Neue";
     line-height: 1.5rem;
     font-size: 1.1rem;
   }
@@ -97,7 +96,7 @@ const VideoTrailer = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-  background: rgba(0,0,0,.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;
   align-items: center;

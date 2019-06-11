@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Video = styled.div`
   img {
@@ -6,7 +6,7 @@ const Video = styled.div`
     transition: transform 0.4s cubic-bezier(0.075, 0.82, 0.165, 1);
 
     &:hover {
-      box-shadow: 0 16px 30px -8px rgba(0,0,0,.15);
+      box-shadow: 0 16px 30px -8px rgba(0, 0, 0, 0.15);
       transform: translateY(-8px);
     }
   }

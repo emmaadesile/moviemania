@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Background = styled.div`
   height: 70px;
@@ -17,7 +17,9 @@ const Background = styled.div`
 
 const Footer = () => (
   <Background>
-    <p>Made with ❤ by <a href='https://twitter.com/emma_adesile'>Emmanuel</a></p>
+    <p>
+      Made with ❤ by <a href="https://twitter.com/emma_adesile">Emmanuel</a>
+    </p>
   </Background>
 );
 

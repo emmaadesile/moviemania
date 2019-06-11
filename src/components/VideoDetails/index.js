@@ -1,7 +1,12 @@
-import React, { Component } from 'react';
-import { format } from 'date-fns';
-import Loader from '../Loader';
-import { Video, PlayButton, VideoInfo, VideoTrailer } from './VideoDetailsStyles';
+import React, { Component } from "react";
+import { format } from "date-fns";
+import Loader from "../Loader";
+import {
+  Video,
+  PlayButton,
+  VideoInfo,
+  VideoTrailer
+} from "./VideoDetailsStyles";
 
 const baseURL = process.env.REACT_APP_BASE_URL;
 const apiKey = process.env.REACT_APP_TMDB_API_KEY;
@@ -10,32 +15,31 @@ class VideoDetails extends Component {
   state = {
     loading: false,
     showVideoTrailer: false,
-    error: '',
+    error: "",
     videoDetails: {
-      vote_average: '',
-      backdrop_path: '',
-      overview: '',
-      videoTitle: '',
-      releaseDate: '',
-      trailerId: '',
+      vote_average: "",
+      backdrop_path: "",
+      overview: "",
+      videoTitle: "",
+      releaseDate: "",
+      trailerId: ""
     }
-  }
+  };
 
   componentDidMount() {
+    console.log(this.props)
     this.fetchVideoDetails();
   }
 
-  /** 
+  /**
    * Fetch the detailes of video
    * @returns null
-  */
+   */
   fetchVideoDetails = () => {
-    const {
-      url,
-      params:{ videoId }} = this.props.match;
+    const { uri, videoId } = this.props;
 
     const regEx = /movie/;
-    const videoType = regEx.test(url) ? 'movie' : 'tv'
+    const videoType = regEx.test(uri) ? "movie" : "tv";
 
     const videoDetailsEndpoint = `${baseURL}/${videoType}/${videoId}?api_key=${apiKey}&append_to_response=credits`;
     const videoTrailerEndpoint = `${baseURL}/${videoType}/${videoId}?api_key=${apiKey}&append_to_response=videos`;
@@ -46,13 +50,13 @@ class VideoDetails extends Component {
     ]);
 
     fetchedVideoDetails.then(data => this.storeVideoDetails(data));
-  }
+  };
 
   toggleVideoTrailer = () => {
     this.setState(prevState => ({
       showVideoTrailer: !prevState.showVideoTrailer
     }));
-  }
+  };
 
   storeVideoDetails = data => {
     const {
@@ -62,27 +66,29 @@ class VideoDetails extends Component {
       original_name,
       title,
       first_air_date,
-      release_date,
+      release_date
     } = data[0];
 
-    const {videos: { results }} = data[1];
+    const {
+      videos: { results }
+    } = data[1];
     const trailerId = results[0].key;
 
-    const { url } = this.props.match;
+    const { uri } = this.props;
     const regEx = /movie/;
-    
+
     let date;
     let videoTitle;
 
-    if (regEx.test(url)) {
+    if (regEx.test(uri)) {
       videoTitle = title;
       date = new Date(release_date);
     } else {
       videoTitle = original_name;
       date = new Date(first_air_date);
     }
-  
-    const releaseDate = format(date, 'MMM DD, YYYY');
+
+    const releaseDate = format(date, "MMM DD, YYYY");
 
     this.setState({
       videoDetails: {
@@ -91,10 +97,10 @@ class VideoDetails extends Component {
         overview,
         videoTitle,
         releaseDate,
-        trailerId,
+        trailerId
       }
     });
-  }
+  };
 
   render() {
     const {
@@ -106,73 +112,70 @@ class VideoDetails extends Component {
         overview,
         releaseDate,
         vote_average,
-        trailerId,
-      } 
+        trailerId
+      }
     } = this.state;
-      
+
     return (
       <>
-        {Object.keys(videoDetails).length === 0
-          ? <Loader />
-          : (
-            <>
-              <Video>
-                <div className="backdrop">
-                  <img
-                    src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
-                    alt="video_backdrop"
-                  />
-                  <div className='backdropBg'>
-                    <div>
-                      <VideoInfo>
-                        <h1>{videoTitle}</h1>
-                        <p className='releaseDate'>Release Date: {releaseDate}</p>
-                        <p>{overview}</p>
-                      </VideoInfo>
+        {Object.keys(videoDetails).length === 0 ? (
+          <Loader />
+        ) : (
+          <>
+            <Video>
+              <div className="backdrop">
+                <img
+                  src={`https://image.tmdb.org/t/p/original${backdrop_path}`}
+                  alt="video_backdrop"
+                />
+                <div className="backdropBg">
+                  <div>
+                    <VideoInfo>
+                      <h1>{videoTitle}</h1>
+                      <p className="releaseDate">Release Date: {releaseDate}</p>
+                      <p>{overview}</p>
+                    </VideoInfo>
 
-                      <div className='moreDetails'>
-                        <PlayButton
-                          type='button'
-                          onClick={this.toggleVideoTrailer}
-                          aria-labelledby='play-button'
-                        >
-                          <i className="fas fa-play"></i>
-                          <span>Play Trailer</span>
-                        </PlayButton>
+                    <div className="moreDetails">
+                      <PlayButton
+                        type="button"
+                        onClick={this.toggleVideoTrailer}
+                        aria-labelledby="play-button"
+                      >
+                        <i className="fas fa-play"></i>
+                        <span>Play Trailer</span>
+                      </PlayButton>
 
-                        <div className='videoRating'>
-                          <i className="fas fa-fire"></i>
-                          <span>{vote_average} / 10</span>
-                        </div>
+                      <div className="videoRating">
+                        <i className="fas fa-fire"></i>
+                        <span>{vote_average} / 10</span>
                       </div>
                     </div>
                   </div>
                 </div>
-              </Video>
-              {showVideoTrailer && (
-                <VideoTrailer>
-                  <div className="closeTrailer">
-                    <i
-                      className="fa fa-times"
-                      aria-labelledby="close-trailer"
-                      onClick={this.toggleVideoTrailer}
-                    >
-                    </i>
-                  </div>
-                  <iframe
-                    src={`https://www.youtube.com/embed/${trailerId}`}
-                    title= "videoTrailer"
-                    allowFullScreen
-                    width="1200"
-                    height="650"
-                    frameBorder="0"
-                  >
-                  </iframe>
-                </VideoTrailer>
-              )}
-            </>
-          )
-        }
+              </div>
+            </Video>
+            {showVideoTrailer && (
+              <VideoTrailer>
+                <div className="closeTrailer">
+                  <i
+                    className="fa fa-times"
+                    aria-labelledby="close-trailer"
+                    onClick={this.toggleVideoTrailer}
+                  ></i>
+                </div>
+                <iframe
+                  src={`https://www.youtube.com/embed/${trailerId}`}
+                  title="videoTrailer"
+                  allowFullScreen
+                  width="1200"
+                  height="650"
+                  frameBorder="0"
+                ></iframe>
+              </VideoTrailer>
+            )}
+          </>
+        )}
       </>
     );
   }
