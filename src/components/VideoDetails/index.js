@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import { format } from "date-fns";
 import Loader from "../Loader";
 import {
@@ -27,7 +27,6 @@ class VideoDetails extends Component {
   };
 
   componentDidMount() {
-    console.log(this.props)
     this.fetchVideoDetails();
   }
 
