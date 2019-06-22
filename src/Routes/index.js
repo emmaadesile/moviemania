@@ -5,7 +5,7 @@ import Tvshows from "../components/TvShows";
 import VideoDetails from "../components/VideoDetails";
 
 const Routes = () => (
-  <Router basepath="/moviemania">
+  <Router>
     <Movies path="/" />
     <Movies path="/movies" />
     <Tvshows path="/tv" />
