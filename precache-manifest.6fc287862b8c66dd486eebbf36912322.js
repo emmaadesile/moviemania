@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "15a0f8fee797485ecfdc72c6ed6a67c6",
+    "revision": "07f794bdda95b8f741906e49c4cb9d13",
     "url": "/moviemania/index.html"
   },
   {
-    "revision": "e555fb46b324f3f5ed5c",
+    "revision": "d593132f3a4cf27995ca",
     "url": "/moviemania/static/css/main.1218d226.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/moviemania/static/js/2.2efb28b1.chunk.js"
   },
   {
-    "revision": "e555fb46b324f3f5ed5c",
-    "url": "/moviemania/static/js/main.5b07c13a.chunk.js"
+    "revision": "d593132f3a4cf27995ca",
+    "url": "/moviemania/static/js/main.a3e41b47.chunk.js"
   },
   {
     "revision": "981277a3b63f65333fc1",
