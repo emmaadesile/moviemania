@@ -1,4 +1,7 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b5346c9d-9a3c-4169-9261-cb94ce169c09/deploy-status)](https://app.netlify.com/sites/moviemania/deploys)
+Moviemania is a simple React app that shows latest movies and their trailers. It consumes [TMDB API](https://www.themoviedb.org/documentation/api) 
+
+![alt text](https://res.cloudinary.com/dn6fnuhxr/image/upload/v1561225354/Screenshot_2019-06-22_at_6.15.13_PM-min.png)
+
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
