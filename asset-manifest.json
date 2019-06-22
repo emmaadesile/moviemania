@@ -1,16 +1,18 @@
 {
-  "main.css": "/moviemania/static/css/main.18dec2b5.chunk.css",
-  "main.js": "/moviemania/static/js/main.94ad85fa.chunk.js",
-  "main.js.map": "/moviemania/static/js/main.94ad85fa.chunk.js.map",
-  "runtime~main.js": "/moviemania/static/js/runtime~main.f3ccedd2.js",
-  "runtime~main.js.map": "/moviemania/static/js/runtime~main.f3ccedd2.js.map",
-  "static/js/2.9094c343.chunk.js": "/moviemania/static/js/2.9094c343.chunk.js",
-  "static/js/2.9094c343.chunk.js.map": "/moviemania/static/js/2.9094c343.chunk.js.map",
-  "index.html": "/moviemania/index.html",
-  "precache-manifest.5c31858c9102cd6033c73720ed919bd5.js": "/moviemania/precache-manifest.5c31858c9102cd6033c73720ed919bd5.js",
-  "service-worker.js": "/moviemania/service-worker.js",
-  "static/css/main.18dec2b5.chunk.css.map": "/moviemania/static/css/main.18dec2b5.chunk.css.map",
-  "static/media/arrow-wallpaper.jpg": "/moviemania/static/media/arrow-wallpaper.651a09d0.jpg",
-  "static/media/avengers_endgame.jpg": "/moviemania/static/media/avengers_endgame.8bef76c9.jpg",
-  "static/media/moviemania-logo.svg": "/moviemania/static/media/moviemania-logo.24c12bfb.svg"
+  "files": {
+    "main.css": "/moviemania/static/css/main.1218d226.chunk.css",
+    "main.js": "/moviemania/static/js/main.d65f5eab.chunk.js",
+    "main.js.map": "/moviemania/static/js/main.d65f5eab.chunk.js.map",
+    "runtime~main.js": "/moviemania/static/js/runtime~main.f3ccedd2.js",
+    "runtime~main.js.map": "/moviemania/static/js/runtime~main.f3ccedd2.js.map",
+    "static/js/2.2efb28b1.chunk.js": "/moviemania/static/js/2.2efb28b1.chunk.js",
+    "static/js/2.2efb28b1.chunk.js.map": "/moviemania/static/js/2.2efb28b1.chunk.js.map",
+    "index.html": "/moviemania/index.html",
+    "precache-manifest.1869f64b9b7816c0043bf88a57fbca03.js": "/moviemania/precache-manifest.1869f64b9b7816c0043bf88a57fbca03.js",
+    "service-worker.js": "/moviemania/service-worker.js",
+    "static/css/main.1218d226.chunk.css.map": "/moviemania/static/css/main.1218d226.chunk.css.map",
+    "static/media/arrow-wallpaper.jpg": "/moviemania/static/media/arrow-wallpaper.651a09d0.jpg",
+    "static/media/avengers_endgame.jpg": "/moviemania/static/media/avengers_endgame.8bef76c9.jpg",
+    "static/media/moviemania-logo.svg": "/moviemania/static/media/moviemania-logo.24c12bfb.svg"
+  }
 }
