@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Wrapper = styled.div`
   height: 100%;
@@ -12,7 +12,7 @@ const ContainerFluid = styled.div`
 
 const HeroImage = styled.div`
   height: 600px;
-  clip-path: polygon(0 0,0 98%,100% 92%,100% 0);
+  clip-path: polygon(0 0, 0 98%, 100% 92%, 100% 0);
   background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
@@ -31,4 +31,4 @@ const TvShowGridContainer = styled.div`
   padding: 30px 20px;
 `;
 
-export { Wrapper, ContainerFluid, HeroImage, TvShowGridContainer }
+export { Wrapper, ContainerFluid, HeroImage, TvShowGridContainer };

@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import Routes from './Routes';
-import Navigation from './components/Navigation';
-import Footer from './components/Footer';
-import './App.css';
+import React, { Component } from "react";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import Routes from "./Routes";
+import Navigation from "./components/Navigation";
+import Footer from "./components/Footer";
+import "./App.css";
 
 const theme = {
-  specialFont: 'DINNextW01-Bold'
-}
+  specialFont: "DINNextW01-Bold"
+};
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -24,7 +24,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-family: ${props => props.theme.specialFont ? 'DINNextW01-Bold': 'Helvetica Neue'};
+    font-family: ${props =>
+      props.theme.specialFont ? "DINNextW01-Bold" : "Helvetica Neue"};
     box-sizing: border-box;
     font-size: 14px;
   }

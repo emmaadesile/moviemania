@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { Nav, UpperNav, LowerNav, Logo } from './Navigation.styles';
+import React from "react";
+import { Link } from "@reach/router";
+import { Nav, UpperNav, LowerNav, Logo } from "./Navigation.styles";
 
 class Navigation extends React.Component {
   state = {};
@@ -9,12 +9,16 @@ class Navigation extends React.Component {
     return (
       <Nav>
         <UpperNav>
-          <Logo src={require('../../assets/images/moviemania-logo.svg')}/>
-        </UpperNav >
+          <Logo src={require("../../assets/images/moviemania-logo.svg")} />
+        </UpperNav>
         <LowerNav>
-          <div className='navItems'>
-            <li><Link to="/movies">MOVIES</Link></li>
-            <li><Link to="/tv">TV SHOWS</Link></li>
+          <div className="navItems">
+            <li>
+              <Link to="/movies">MOVIES</Link>
+            </li>
+            <li>
+              <Link to="/tv">TV SHOWS</Link>
+            </li>
           </div>
         </LowerNav>
       </Nav>

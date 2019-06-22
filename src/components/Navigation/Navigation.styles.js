@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const Nav = styled.nav`
   height: 92px;
-  background: #22262A;
+  background: #22262a;
 `;
 
 const UpperNav = styled.div`
@@ -24,7 +24,7 @@ const LowerNav = styled.div`
   .navItems {
     width: 200px;
     display: grid;
-    grid-template-columns : repeat(2, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     justify-items: center;
 
     a {
@@ -42,7 +42,6 @@ const LowerNav = styled.div`
       list-style: none;
     }
   }
-
 `;
 
 const Logo = styled.img`
@@ -50,4 +49,4 @@ const Logo = styled.img`
   width: auto;
 `;
 
-export { Nav, UpperNav, LowerNav, Logo }
+export { Nav, UpperNav, LowerNav, Logo };

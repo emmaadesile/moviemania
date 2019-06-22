@@ -4,14 +4,19 @@
   "private": true,
   "homepage": "http://emmaadesile.github.io/moviemania",
   "dependencies": {
+    "@reach/router": "^1.2.1",
+    "axios": "^0.19.0",
     "date-fns": "^1.30.1",
+    "eslint-plugin-react-hooks": "^1.6.0",
     "node-sass": "^4.11.0",
+    "parcel-bundler": "^1.12.3",
+    "prettier": "^1.18.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
     "react-pose": "^4.0.8",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
-    "react-scripts": "2.1.8",
+    "react-scripts": "^3.0.1",
     "serve": "^11.0.0",
     "styled-components": "^4.1.3",
     "yarn": "^1.16.0"
@@ -27,9 +32,6 @@
     "deploy": "gh-pages -d build",
     "test:dev": "jest --coverage"
   },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
   "browserslist": [
     ">0.2%",
     "not dead",
@@ -37,18 +39,32 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@babel/preset-env": "^7.4.4",
+    "@babel/core": "^7.4.5",
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "@babel/preset-env": "^7.4.5",
     "@babel/preset-react": "^7.0.0",
+    "babel-eslint": "^10.0.1",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.3.0",
+    "eslint-plugin-import": "^2.17.3",
+    "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-react": "^7.13.0",
     "gh-pages": "^2.0.1",
     "prop-types": "^15.7.2",
     "react-testing-library": "^7.0.0"
   },
   "babel": {
-    "presets": "./.babelrc.js"
+    "presets": [
+      "@babel/preset-react",
+      "@babel/preset-env"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
   }
 }

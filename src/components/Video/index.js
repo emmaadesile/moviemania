@@ -1,12 +1,12 @@
-import React from 'react';
-import { format } from 'date-fns';
-import { Video, VideoInfo } from './VideoStyles';
+import React from "react";
+import { format } from "date-fns";
+import { Video, VideoInfo } from "./VideoStyles";
 
 const VideoCard = ({ video, type }) => {
   let releaseDate;
   let title;
 
-  if (type === 'tv') {
+  if (type === "tv") {
     releaseDate = new Date(video.first_air_date);
     title = video.original_name;
   } else {
@@ -14,7 +14,7 @@ const VideoCard = ({ video, type }) => {
     title = video.title;
   }
 
-  const formattedDate = format(releaseDate, 'MMM DD, YYYY');
+  const formattedDate = format(releaseDate, "MMM DD, YYYY");
 
   return (
     <Video>
