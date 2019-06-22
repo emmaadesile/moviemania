@@ -1,34 +1,56 @@
 import styled from "styled-components";
 
-const Video = styled.div`
-  img {
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: cover;
-    z-index: -10;
-  }
+const MoviePoster = styled.img`
+  height: 800px;
+  width: 100%;
+  object-fit: cover;
+  z-index: -10;
+  position: absolute;
+  top: 0;
+`;
 
+const Video = styled.div`
   .backdrop {
-    height: 680px;
-    box-sizing: border-box;
-    background-size: cover;
-    color: white;
+    color: #eee;
   }
 
   .backdropBg {
+    @media (min-width: 768px) {
+      grid-template-columns: 1fr;
+
+      .moreDetails {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 992px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media (min-width: 576px) {
+      .moreDetails {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 375px) {
+      .moreDetails {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     display: grid;
-    grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-items: center;
     width: 100%;
-    height: inherit;
-    position: absolute;
+    height: 700px;
+
     top: 92px;
     background-color: rgba(0, 0, 0, 0.7);
 
     .moreDetails {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
       grid-gap: 15px;
 
       .videoRating {
@@ -56,6 +78,7 @@ const PlayButton = styled.button`
   color: white;
   border: none;
   font-size: 0.9rem;
+  justify-self: start;
 
   &:hover {
     background-color: #d84443;
@@ -68,6 +91,7 @@ const PlayButton = styled.button`
 
 const VideoInfo = styled.div`
   max-width: 450px;
+  padding: 10px 20px;
 
   h1 {
     font-size: 3.2rem;
@@ -86,14 +110,34 @@ const VideoInfo = styled.div`
     margin-top: -2.2rem;
     color: #999;
   }
+
+  .overview {
+    line-height: 25px;
+    color: #eee;
+  }
 `;
 
 const VideoTrailer = styled.div`
+  iframe {
+    width: 100%;
+    height: 600px;
+
+    @media (max-width: 600px) {
+      width: 576px;
+      height: 450px;
+    }
+
+    @media (max-width: 400px) {
+      width: 378px;
+      height: 300px;
+    }
+  }
+
   left: 0px;
   top: 90px;
   z-index: 100;
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   background: rgba(0, 0, 0, 0.5);
@@ -102,13 +146,9 @@ const VideoTrailer = styled.div`
   align-items: center;
   justify-items: center;
 
-  iframe {
-    /* position: fixed; */
-  }
-
   .closeTrailer {
     background: #000;
-    width: 1200px;
+    width: 100%;
     height: 50px;
     display: grid;
     grid-template-columns: 1fr;
@@ -129,4 +169,4 @@ const VideoTrailer = styled.div`
   }
 `;
 
-export { Video, PlayButton, VideoInfo, VideoTrailer };
+export { Video, PlayButton, VideoInfo, VideoTrailer, MoviePoster };

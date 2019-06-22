@@ -10,13 +10,13 @@ const Home = () => (
   </div>
 );
 
-const Routes = () => (
+const Routes = () => ( 
   <Router>
     <Home path="/" />
-    <Movies path="/movies" component={Movies} />
+    <Movies path="/movies" />
     <Tvshows path="/tv" />
-    <VideoDetails exact path="/tv/:videoId/" component={VideoDetails} />
-    <VideoDetails exact path="/movie/:videoId/" component={VideoDetails} />
+    <VideoDetails path="/tv/:videoId/" />
+    <VideoDetails path="/movie/:videoId/" />
   </Router>
 );
 
