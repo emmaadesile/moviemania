@@ -5,7 +5,7 @@
   "homepage": "http://emmaadesile.github.io/moviemania",
   "engines": {
     "node": "10.8.0",
-    "yarn": "1.9.4"
+    "yarn": "1.16.0"
   },
   "dependencies": {
     "@reach/router": "^1.2.1",
