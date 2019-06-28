@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { format } from "date-fns";
 import Loader from "../Loader";
-import Footer from "./../Footer";
+
 import {
   Video,
   PlayButton,
