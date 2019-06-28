@@ -1,13 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import "./loader.scss";
 
 // Loader Reference: https://codepen.io/hafizfattah/pen/AbBtc
-const LoadingComp = styled.div`
-  .loader {
-    margin: 200px auto;
-    min-height: 100vh;
-  }
+const Loading = styled.div`
+  margin: 200px auto;
+  min-height: 100vh;
 
   h1 {
     font-family: "Actor", sans-serif;
@@ -18,7 +15,7 @@ const LoadingComp = styled.div`
     text-align: center;
   }
 
-  .loader span {
+  span {
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -31,23 +28,16 @@ const LoadingComp = styled.div`
     -o-animation: 3s infinite linear;
   }
 
-  .loader span:nth-child(2) {
+  span:nth-child(2) {
     background: #e84c3d;
     -webkit-animation: kiri 1.2s infinite linear;
     -moz-animation: kiri 1.2s infinite linear;
     -o-animation: kiri 1.2s infinite linear;
   }
 
-  .loader span:nth-child(3) {
+  span:nth-child(3) {
     background: #f1c40f;
     z-index: 100;
-  }
-
-  .loader span:nth-child(4) {
-    background: #2fcc71;
-    -webkit-animation: kanan 1.2s infinite linear;
-    -moz-animation: kanan 1.2s infinite linear;
-    -o-animation: kanan 1.2s infinite linear;
   }
 
   @-webkit-keyframes kanan {
@@ -134,14 +124,12 @@ const LoadingComp = styled.div`
 `;
 
 const Loader = () => (
-  <LoadingComp>
-    <div className="loader">
-      <h1>LOADING</h1>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </LoadingComp>
+  <Loading>
+    <h1>LOADING</h1>
+    <span />
+    <span />
+    <span />
+  </Loading>
 );
 
 export default Loader;
