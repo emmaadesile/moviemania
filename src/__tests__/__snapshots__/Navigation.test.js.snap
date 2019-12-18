@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Navigation mounts 1`] = `
+<nav
+  class="sc-bdVaJa bEKecW"
+>
+  <div
+    class="sc-bwzfXH gXdCbO"
+  >
+    <img
+      class="sc-bxivhb cxjNSp"
+      src="[object Object]"
+    />
+  </div>
+  <div
+    class="sc-htpNat bGvqhm"
+  >
+    <div
+      class="navItems"
+    >
+      <li>
+        <a
+          href="/movies"
+        >
+          MOVIES
+        </a>
+      </li>
+      <li>
+        <a
+          href="/tv"
+        >
+          TV SHOWS
+        </a>
+      </li>
+    </div>
+  </div>
+</nav>
+`;

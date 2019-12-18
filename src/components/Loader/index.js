@@ -13,7 +13,7 @@ const Loading = styled.div`
     letter-spacing: 1px;
     font-weight: 200;
     text-align: center;
-  }
+  
 
   span {
     width: 16px;

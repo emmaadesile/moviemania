@@ -87,7 +87,7 @@ const VideoDetails = props => {
         releaseDate,
         trailerId
       });
-    };
+    }
 
     const fetchVideoDetails = async () => {
       try {
@@ -105,6 +105,20 @@ const VideoDetails = props => {
     };
     fetchVideoDetails();
   }, [videoDetailsEndpoint, videoTrailerEndpoint, props]);
+
+  useEffect(() => {
+    const onEscapeKeyPress = event => {
+      if (event.keyCode === 27) {
+        if (!showVideoTrailer) return;
+        setShowVideoTrailer(false)
+      }
+    }
+    window.addEventListener('keydown', onEscapeKeyPress);
+
+    return () => {
+      window.removeEventListener('keydown', onEscapeKeyPress)
+    }
+  })
 
   const {
     backdrop_path,

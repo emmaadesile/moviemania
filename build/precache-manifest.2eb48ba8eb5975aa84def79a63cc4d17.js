@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "6030b98d9ea42992a51d020d84407ffa",
+    "revision": "f669d2fa34bcc7f043085c4d89569217",
     "url": "/moviemania/index.html"
   },
   {
-    "revision": "489380b0e27a008207ef",
-    "url": "/moviemania/static/css/main.1218d226.chunk.css"
+    "revision": "f52d594d1c35114f680e",
+    "url": "/moviemania/static/css/main.8f7cbebf.chunk.css"
   },
   {
-    "revision": "d712ee92024d9052de08",
-    "url": "/moviemania/static/js/2.7f534552.chunk.js"
+    "revision": "895fd8422a85cc022eef",
+    "url": "/moviemania/static/js/2.12bafc90.chunk.js"
   },
   {
-    "revision": "489380b0e27a008207ef",
-    "url": "/moviemania/static/js/main.cf330054.chunk.js"
+    "revision": "f52d594d1c35114f680e",
+    "url": "/moviemania/static/js/main.9a8ef74f.chunk.js"
   },
   {
-    "revision": "981277a3b63f65333fc1",
-    "url": "/moviemania/static/js/runtime~main.f3ccedd2.js"
+    "revision": "73eea41ec062e03f4e98",
+    "url": "/moviemania/static/js/runtime-main.ad7e2fd7.js"
   },
   {
     "revision": "651a09d0e7f05997a64b908ef8f68e5d",
