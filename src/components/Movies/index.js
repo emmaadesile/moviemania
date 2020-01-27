@@ -3,6 +3,7 @@ import { Link } from "@reach/router";
 import useDataAPI from '../../useDataApi';
 import Video from "../Video";
 import Loader from "../Loader";
+import LoadMore from "../LoadMore";
 import {
   Wrapper,
   ContainerFluid,
@@ -10,8 +11,13 @@ import {
   MovieGridContainer
 } from "./MoviesStyles";
 
-const Movies = () => {
+const Movies = props => {
   const [videos, isError] = useDataAPI('movie');
+  // const { uri } = props
+
+  function handleLoadMore () {
+    console.log('load more movies')
+  }
 
   return (
     <Wrapper>
@@ -29,6 +35,7 @@ const Movies = () => {
                 </Link>
               ))}
             </MovieGridContainer>
+            <LoadMore handleClick={() => handleLoadMore()} />
           </ContainerFluid>
         </>
       )}
