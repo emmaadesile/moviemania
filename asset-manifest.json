@@ -1,18 +1,25 @@
 {
   "files": {
-    "main.css": "/moviemania/static/css/main.1218d226.chunk.css",
-    "main.js": "/moviemania/static/js/main.5b07c13a.chunk.js",
-    "main.js.map": "/moviemania/static/js/main.5b07c13a.chunk.js.map",
-    "runtime~main.js": "/moviemania/static/js/runtime~main.f3ccedd2.js",
-    "runtime~main.js.map": "/moviemania/static/js/runtime~main.f3ccedd2.js.map",
-    "static/js/2.2efb28b1.chunk.js": "/moviemania/static/js/2.2efb28b1.chunk.js",
-    "static/js/2.2efb28b1.chunk.js.map": "/moviemania/static/js/2.2efb28b1.chunk.js.map",
+    "main.css": "/moviemania/static/css/main.8f7cbebf.chunk.css",
+    "main.js": "/moviemania/static/js/main.5da27720.chunk.js",
+    "main.js.map": "/moviemania/static/js/main.5da27720.chunk.js.map",
+    "runtime-main.js": "/moviemania/static/js/runtime-main.8d4fe236.js",
+    "runtime-main.js.map": "/moviemania/static/js/runtime-main.8d4fe236.js.map",
+    "static/js/2.b4b67dfa.chunk.js": "/moviemania/static/js/2.b4b67dfa.chunk.js",
+    "static/js/2.b4b67dfa.chunk.js.map": "/moviemania/static/js/2.b4b67dfa.chunk.js.map",
     "index.html": "/moviemania/index.html",
-    "precache-manifest.cd8b5ed02a5cb40cd78267433d7b1870.js": "/moviemania/precache-manifest.cd8b5ed02a5cb40cd78267433d7b1870.js",
+    "precache-manifest.67ab0a93679d07921466a9ac07047bcb.js": "/moviemania/precache-manifest.67ab0a93679d07921466a9ac07047bcb.js",
     "service-worker.js": "/moviemania/service-worker.js",
-    "static/css/main.1218d226.chunk.css.map": "/moviemania/static/css/main.1218d226.chunk.css.map",
+    "static/css/main.8f7cbebf.chunk.css.map": "/moviemania/static/css/main.8f7cbebf.chunk.css.map",
+    "static/js/2.b4b67dfa.chunk.js.LICENSE": "/moviemania/static/js/2.b4b67dfa.chunk.js.LICENSE",
     "static/media/arrow-wallpaper.jpg": "/moviemania/static/media/arrow-wallpaper.651a09d0.jpg",
     "static/media/avengers_endgame.jpg": "/moviemania/static/media/avengers_endgame.8bef76c9.jpg",
     "static/media/moviemania-logo.svg": "/moviemania/static/media/moviemania-logo.24c12bfb.svg"
-  }
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8d4fe236.js",
+    "static/js/2.b4b67dfa.chunk.js",
+    "static/css/main.8f7cbebf.chunk.css",
+    "static/js/main.5da27720.chunk.js"
+  ]
 }
