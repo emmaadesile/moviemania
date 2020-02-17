@@ -24,10 +24,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-family: ${props =>
-      props.theme.specialFont ? "DINNextW01-Bold" : "Helvetica Neue"};
+    font-family: "DINNextW01-Bold", "Helvetica Neue";
     box-sizing: border-box;
     font-size: 14px;
+    font-display: fallback;
   }
 
   a {

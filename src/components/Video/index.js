@@ -14,6 +14,7 @@ const VideoCard = ({ video, type }) => {
     title = video.title;
   }
 
+  const formattedTitle = title.length > 20 ? title.slice(0, 23) + '...' : title;
   const formattedDate = format(releaseDate, "MMM DD, YYYY");
 
   return (
@@ -23,7 +24,7 @@ const VideoCard = ({ video, type }) => {
         alt="movie_poster"
       />
       <VideoInfo>
-        <p className="movieTitle">{title}</p>
+        <p className="movieTitle">{formattedTitle}</p>
         <p className="releaseDate">{formattedDate}</p>
       </VideoInfo>
     </Video>

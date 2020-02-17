@@ -1,4 +1,4 @@
-// eslint-disable
+/* eslint-disable */ 
 import React, { useState, useEffect } from "react";
 import { format } from "date-fns";
 import Loader from "../Loader";
@@ -171,7 +171,7 @@ const VideoDetails = props => {
             <VideoTrailer>
               <div className="closeTrailer">
                 <i
-                  role="close-button"
+                  role="button"
                   className="fa fa-times"
                   aria-labelledby="close-trailer"
                   onClick={() => setShowVideoTrailer(false)}

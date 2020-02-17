@@ -2,7 +2,6 @@
   "name": "moviemania",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://emmaadesile.github.io/moviemania",
   "dependencies": {
     "@reach/router": "^1.2.1",
     "axios": "^0.19.0",

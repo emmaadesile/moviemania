@@ -1,32 +1,78 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import { Link } from "@reach/router";
-import useDataAPI from '../../useDataApi';
+import axios from "axios";
 import Video from "../Video";
 import Loader from "../Loader";
 import LoadMore from "../LoadMore";
+import Header from "../Header";
 import {
   Wrapper,
   ContainerFluid,
-  HeroImage,
   MovieGridContainer
 } from "./MoviesStyles";
 
-const Movies = props => {
-  const [videos, isError] = useDataAPI('movie');
-  // const { uri } = props
+const apiKey = process.env.REACT_APP_TMDB_API_KEY;
+const baseURL = process.env.REACT_APP_BASE_URL;
 
-  function handleLoadMore () {
-    console.log('load more movies')
+function Movies() {
+  const [videos, setVideos] = useState([]);
+  const [isError, setIsError] = useState(false);
+  const [page, setPage] = useState(1);
+
+  const endpoint = `${baseURL}/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=${page}`;
+
+  useEffect(() => {
+    const fetchVideos = async () => {
+      try {
+        const fetchedVideos = await axios(endpoint);
+        storeVideos(fetchedVideos.data.results);
+      } catch (error) {
+        setIsError(true);
+      }
+    };
+    fetchVideos();
+  }, [endpoint, page]);
+
+  function storeVideos(data) {
+    const storedVideos = data.map(
+      ({
+        title,
+        vote_count,
+        id,
+        genre_ids,
+        poster_path,
+        original_name,
+        vote_average,
+        first_air_date,
+        release_date
+      }) => ({
+        title,
+        vote_count,
+        id,
+        genre_ids,
+        poster_path,
+        original_name,
+        vote_average,
+        first_air_date,
+        release_date
+      })
+    );
+
+    setVideos(storedVideos);
+  }
+
+  function handleLoadMore(page) {
+    setPage(page + 1);
   }
 
   return (
     <Wrapper>
       {isError && <h2>Oops something went wrong...</h2>}
-      {videos.length  === 0 && !isError? (
+      {videos.length === 0 && !isError ? (
         <Loader />
       ) : (
         <>
-          <HeroImage />
+          <Header type="movie" />
           <ContainerFluid>
             <MovieGridContainer>
               {videos.map(movie => (
@@ -41,6 +87,6 @@ const Movies = props => {
       )}
     </Wrapper>
   );
-};
+}
 
 export default Movies;

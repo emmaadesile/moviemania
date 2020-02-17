@@ -1,14 +1,10 @@
 import React from "react";
 import { Link } from "@reach/router";
 import useDataAPI from "../../useDataApi";
-import {
-  ContainerFluid,
-  HeroImage,
-  TvShowGridContainer,
-  Wrapper
-} from "./TvShowsStyles";
+import { ContainerFluid, TvShowGridContainer, Wrapper } from "./TvShowsStyles";
 import Video from "../Video";
 import Loader from "../Loader";
+import Header from "../Header";
 
 const TvShows = () => {
   const [videos, isError] = useDataAPI("tv");
@@ -20,7 +16,7 @@ const TvShows = () => {
         <Loader />
       ) : (
         <>
-          <HeroImage />
+          <Header type="tv" />
           <ContainerFluid>
             <TvShowGridContainer>
               {videos.map(show => (
