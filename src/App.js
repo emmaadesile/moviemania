@@ -10,6 +10,11 @@ const theme = {
 };
 
 const GlobalStyle = createGlobalStyle`
+  :root {
+    --navHeight: 214px;
+    --myRed: #e50505;
+  }
+  
   @font-face {
     font-family: "DINNextW01-Bold";
     src: url("./assets/fonts/DINNextW01-Bold.otf") format(otf);

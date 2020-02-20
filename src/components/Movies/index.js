@@ -5,11 +5,7 @@ import Video from "../Video";
 import Loader from "../Loader";
 import LoadMore from "../LoadMore";
 import Header from "../Header";
-import {
-  Wrapper,
-  ContainerFluid,
-  MovieGridContainer
-} from "./MoviesStyles";
+import { Wrapper, ContainerFluid, MovieGridContainer } from "./MoviesStyles";
 
 const apiKey = process.env.REACT_APP_TMDB_API_KEY;
 const baseURL = process.env.REACT_APP_BASE_URL;
@@ -22,15 +18,14 @@ function Movies() {
   const endpoint = `${baseURL}/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=${page}`;
 
   useEffect(() => {
-    const fetchVideos = async () => {
+    (async () => {
       try {
         const fetchedVideos = await axios(endpoint);
         storeVideos(fetchedVideos.data.results);
       } catch (error) {
         setIsError(true);
       }
-    };
-    fetchVideos();
+    })();
   }, [endpoint, page]);
 
   function storeVideos(data) {

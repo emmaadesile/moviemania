@@ -14,28 +14,24 @@ const HeroImage = styled.header`
 
   img {
     width: 100%;
-    background-position: top;
-    background-repeat: no-repeat;
+    /* background-position: top; */
     background-size: cover;
   }
 `;
 
 const Header = type => {
   const [headerImage, setHeaderImage] = useState("");
-
+  const endpoint = `https://api.themoviedb.org/3/trending/${type}/day?api_key=${key}`;
   useEffect(() => {
-    const fetchHeaderImage = async () => {
+    (async () => {
       try {
-        const imgUrl = await fetch(
-          `https://api.themoviedb.org/3/trending/${type}/day?api_key=${key}`
-        ).then(resp => resp.json());
+        const imgUrl = await fetch(endpoint).then(resp => resp.json());
         setHeaderImage(imgUrl.results[0].backdrop_path);
       } catch (error) {
         console.log(error);
       }
-    };
-    fetchHeaderImage();
-  }, [type]);
+    })();
+  }, [type, endpoint]);
 
   return (
     <HeroImage>

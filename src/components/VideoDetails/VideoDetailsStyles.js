@@ -10,6 +10,8 @@ const MoviePoster = styled.img`
 `;
 
 const Video = styled.div`
+   height: calc(100vh - 162px);
+
   .backdrop {
     color: #eee;
   }

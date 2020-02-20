@@ -38,8 +38,6 @@ const ButtonText = styled.button`
   }
 `;
 
-export { Container, ButtonText };
-
 const LoadMore = props => (
   <Container>
     <ButtonText onClick={props.handleClick}>Load More</ButtonText>

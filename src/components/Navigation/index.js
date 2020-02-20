@@ -9,7 +9,9 @@ class Navigation extends React.Component {
     return (
       <Nav>
         <UpperNav>
-          <Logo src={require("../../assets/images/moviemania-logo.svg")} />
+          <Link to="/">
+            <Logo src={require("../../assets/images/moviemania-logo.svg")} />
+          </Link>
         </UpperNav>
         <LowerNav>
           <div className="navItems">
