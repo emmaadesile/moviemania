@@ -18,7 +18,7 @@ const Background = styled.div`
 const Footer = () => (
   <Background>
     <p>
-      Made with ❤ by <a href="https://twitter.com/emma_adesile">Emmanuel</a>
+      Made with ❤ by <a href="https://twitter.com/emma_adesile">Davinći</a>
     </p>
   </Background>
 );

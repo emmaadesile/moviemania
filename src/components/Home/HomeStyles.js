@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-
-  width: 100%;
+  @media screen and (min-width: 1680px) {
+    padding: 0 3em;
+  }
 `;
 
 const Content = styled.div`
@@ -13,23 +14,44 @@ const Content = styled.div`
   }
 
   @media screen and (max-width: 520px) {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(8, 1fr);
+    grid-template-columns: 1fr;
+
+    .feature1 {
+      display: none;
+    }
   }
 `;
 
 const TrendingHeader = styled.header`
-  height: 500px;
+  height: 520px;
   display: grid;
   grid-template-columns: 1fr 3fr;
   grid-gap: 20px;
   overflow-y: hidden;
+  position: relative;
+
+  img {
+    background-size: cover;
+  }
 
   .feature1 {
   }
 
   .feature2 {
   }
+
+  @media screen and (max-width: 520px) {
+    grid-template-columns: 1fr;
+    height: 200px;
+
+    .feature1 {
+      display: none;
+    }
+  }
+`;
+
+const TrailerWrapper = styled.div`
+  position: absolute;
 `;
 
 const TrendingText = styled.h1`

@@ -36,7 +36,7 @@ const Header = type => {
   return (
     <HeroImage>
       <img
-        src={`https://image.tmdb.org/t/p/original${headerImage}`}
+        src={`https://image.tmdb.org/t/p/original/${headerImage}`}
         alt="header-img"
       />
     </HeroImage>

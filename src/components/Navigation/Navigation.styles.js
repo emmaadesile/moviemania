@@ -22,24 +22,29 @@ const LowerNav = styled.div`
   color: white;
 
   .navItems {
-    width: 200px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
+    ul {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-gap: 20px;
+      grid-template-columns: repeat(2, 1fr);
+      justify-items: center;
+      align-items: center;
 
-    a {
-      text-decoration: none;
-      color: #fff !important;
-      transition: 0.3s color ease-in-out;
-      display: block;
-    }
+      a {
+        text-decoration: none;
+        color: #fff !important;
+        transition: 0.3s color ease-in-out;
+        display: block;
+      }
 
-    a:hover {
-      color: #777 !important;
-    }
+      a:hover {
+        color: #777 !important;
+      }
 
-    li {
-      list-style: none;
+      li {
+        list-style: none;
+      }
     }
   }
 `;

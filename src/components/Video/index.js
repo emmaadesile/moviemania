@@ -2,7 +2,7 @@ import React from "react";
 import { format } from "date-fns";
 import { Video, VideoInfo } from "./VideoStyles";
 
-const VideoCard = ({ video, type }) => {
+const VideoCard = ({ video, type, onClickHandler }) => {
   let releaseDate;
   let title;
 
@@ -14,11 +14,11 @@ const VideoCard = ({ video, type }) => {
     title = video.title;
   }
 
-  const formattedTitle = title.length > 20 ? title.slice(0, 23) + '...' : title;
+  const formattedTitle = title.length > 20 ? title.slice(0, 23) + "..." : title;
   const formattedDate = format(releaseDate, "MMM DD, YYYY");
 
   return (
-    <Video>
+    <Video onClick={type === "trending" ? onClickHandler : undefined}>
       <img
         src={`https://image.tmdb.org/t/p/w342/${video.poster_path}`}
         alt="movie_poster"

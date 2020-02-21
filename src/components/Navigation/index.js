@@ -15,12 +15,14 @@ class Navigation extends React.Component {
         </UpperNav>
         <LowerNav>
           <div className="navItems">
-            <li>
-              <Link to="/movies">MOVIES</Link>
-            </li>
-            <li>
-              <Link to="/tv">TV SHOWS</Link>
-            </li>
+            <ul>
+              <li>
+                <Link to="/movies">MOVIES</Link>
+              </li>
+              <li>
+                <Link to="/tv">TV SHOWS</Link>
+              </li>
+            </ul>
           </div>
         </LowerNav>
       </Nav>
