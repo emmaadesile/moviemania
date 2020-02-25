@@ -10,8 +10,8 @@ const Container = styled.div`
   margin-bottom: 40px;
 `;
 
-const ButtonText = styled.button`
-  font-family:"DINNextW01-Bold";
+const Button = styled.button`
+  font-family: "DINNextW01-Bold";
   font-weight: 600;
   font-size: 1em;
   text-transform: uppercase;
@@ -21,7 +21,7 @@ const ButtonText = styled.button`
   cursor: pointer;
   color: grey;
   background: #fff;
-  background-image: linear-gradient(
+  background-image:  linear-gradient(
     to left,
     transparent,
     transparent 50%,
@@ -40,7 +40,9 @@ const ButtonText = styled.button`
 
 const LoadMore = props => (
   <Container>
-    <ButtonText onClick={props.handleClick}>Load More</ButtonText>
+    <Button disabled={props.disabled} onClick={props.handleClick}>
+      Load More
+    </Button>
   </Container>
 );
 

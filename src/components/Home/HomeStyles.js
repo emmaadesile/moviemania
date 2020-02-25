@@ -52,6 +52,12 @@ const TrendingHeader = styled.header`
 
 const TrailerWrapper = styled.div`
   position: absolute;
+  bottom: 20px;
+`;
+
+const PlayButton = styled.div`
+  width: 50px;
+  border-radius: 50%;
 `;
 
 const TrendingText = styled.h1`

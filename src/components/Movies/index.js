@@ -53,11 +53,18 @@ function Movies() {
       })
     );
 
-    setVideos(storedVideos);
+    if (videos.length !== 0) {
+      setVideos(videos.concat(storedVideos));
+    } else {
+      setVideos(storedVideos);
+    }
   }
 
-  function handleLoadMore(page) {
-    setPage(page + 1);
+  function handleLoadMore() {
+    if (page <= 5) {
+      setPage(page + 1);
+    }
+    return;
   }
 
   return (
@@ -76,7 +83,7 @@ function Movies() {
                 </Link>
               ))}
             </MovieGridContainer>
-            <LoadMore handleClick={() => handleLoadMore()} />
+            <LoadMore disabled={page === 5} handleClick={handleLoadMore} />
           </ContainerFluid>
         </>
       )}

@@ -14,7 +14,6 @@ const HeroImage = styled.header`
 
   img {
     width: 100%;
-    /* background-position: top; */
     background-size: cover;
   }
 `;
