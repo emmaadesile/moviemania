@@ -17,7 +17,8 @@ const GlobalStyle = createGlobalStyle`
   
   @font-face {
     font-family: "DINNextW01-Bold";
-    src: url("./assets/fonts/DINNextW01-Bold.otf") format(otf);
+    src: url("./assets/fonts/DINNextW01-Bold.otf") format(otf),
+    url("./assets/fonts/DINNextW01-Bold.otf") format(ttf);
   }
 
   * {
@@ -26,10 +27,11 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     font-size: 1rem;
+    /* font-family: "DINNextW01-Bold", "Helvetica Neue"; */
   }
 
   html {
-    font-family: "DINNextW01-Bold", "Helvetica Neue";
+    font-family: "DINNextW01-Bold", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     box-sizing: border-box;
     font-size: 14px;
     font-display: fallback;
@@ -48,8 +50,8 @@ class App extends Component {
   render() {
     return (
       <ThemeProvider theme={theme}>
-        <div className="App">
           <GlobalStyle />
+        <div className="App">
           <Navigation />
           <Routes />
           <Footer />

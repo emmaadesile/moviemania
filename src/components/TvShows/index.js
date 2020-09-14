@@ -5,6 +5,7 @@ import { ContainerFluid, TvShowGridContainer, Wrapper } from "./TvShowsStyles";
 import Video from "../Video";
 import Loader from "../Loader";
 import Header from "../Header";
+import LoadMore from "../LoadMore";
 
 const TvShows = () => {
   const [videos, isError] = useDataAPI("tv");
@@ -25,6 +26,7 @@ const TvShows = () => {
                 </Link>
               ))}
             </TvShowGridContainer>
+            {/* <LoadMore disabled={page === 5} handleClick={handleLoadMore} /> */}
           </ContainerFluid>
         </>
       )}

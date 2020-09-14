@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const MoviePoster = styled.img`
-  height: 800px;
+  height: 100%;
   width: 100%;
   object-fit: cover;
   z-index: -10;
@@ -45,7 +45,7 @@ const Video = styled.div`
     align-items: center;
     justify-items: center;
     width: 100%;
-    height: 700px;
+    height: 100vh;
 
     top: 92px;
     background-color: rgba(0, 0, 0, 0.7);
@@ -54,6 +54,7 @@ const Video = styled.div`
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
       grid-gap: 15px;
+      align-items: center;
 
       .videoRating {
         color: #ddd;
@@ -61,9 +62,9 @@ const Video = styled.div`
         .fa-fire {
           border-radius: 50%;
           border: 1px solid #ddd;
-          padding: 5px 7px;
+          padding: 10px 12px;
           color: #e50603;
-          margin-right: 5px;
+          margin-right: 10px;
         }
       }
     }
@@ -72,9 +73,10 @@ const Video = styled.div`
 
 const PlayButton = styled.button`
   background-color: #e50603;
-  padding: 6px 10px;
+  padding: 1rem 1.5rem;
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   border-radius: 4px;
   transition: 0.5s background-color cubic-bezier(0.075, 0.82, 0.165, 1);
   color: white;
@@ -97,12 +99,10 @@ const VideoInfo = styled.div`
 
   h1 {
     font-size: 3.2rem;
-    font-family: "DINNextW01-Bold";
     text-align: left;
   }
 
   p {
-    font-family: "Helvetica Neue";
     line-height: 1.5rem;
     font-size: 1.1rem;
   }
