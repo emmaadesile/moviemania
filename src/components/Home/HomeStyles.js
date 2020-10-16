@@ -35,13 +35,15 @@ const TrendingHeader = styled.header`
   position: relative;
 
   img {
-    background-size: cover;
+    /* background-size: cover; */
   }
 
   .feature1 {
   }
 
   .feature2 {
+    /* width: 530px; */
+
     .overlay {
       position: absolute;
       top: 0;
@@ -66,11 +68,11 @@ const TrendingHeader = styled.header`
       h1 {
         font-size: 2.8rem;
         margin-bottom: 1rem;
-        /* width: 80%; */
       }
 
       p {
-        width: 50vw;
+        width: 40rem;
+        font-size:  1.2rem;
       }
       /* height: 100%;
       display: flex;
