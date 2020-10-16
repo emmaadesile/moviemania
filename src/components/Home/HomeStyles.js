@@ -7,7 +7,11 @@ const Container = styled.div`
 `;
 
 const Content = styled.div`
-  padding: 50px;
+  padding: 20px;
+
+  @media (min-width: 520px) {
+    padding: 50px;
+  }
 
   img {
     background-size: cover;
@@ -38,11 +42,45 @@ const TrendingHeader = styled.header`
   }
 
   .feature2 {
+    .overlay {
+      position: absolute;
+      top: 0;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        transparent 65%,
+        rgba(0, 0, 0, 0.35) 83.5%,
+        rgba(0, 0, 0, 0.75) 100%
+      );
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+    }
+    .overview {
+      padding: 1rem;
+      color: #fff;
+      position: absolute;
+      bottom: 2rem;
+      left: 0.5rem;
+
+      h1 {
+        font-size: 2.8rem;
+        margin-bottom: 1rem;
+        /* width: 80%; */
+      }
+
+      p {
+        width: 50vw;
+      }
+      /* height: 100%;
+      display: flex;
+      align-items: flex-end; */
+    }
   }
 
   @media screen and (max-width: 520px) {
     grid-template-columns: 1fr;
-    height: 200px;
+    height: 300px;
 
     .feature1 {
       display: none;
@@ -74,10 +112,14 @@ const TrendingVidoes = styled.section`
   grid-gap: 20px;
   justify-items: center;
   align-items: start;
-  background: white;
+  /* background: white; */
   margin: -80px 0 auto;
   z-index: 1000;
   padding: 20px;
+
+  @media (min-width: 320px) {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
 `;
 
 export { Container, Content, TrendingText, TrendingVidoes, TrendingHeader };

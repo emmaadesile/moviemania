@@ -4,7 +4,7 @@ import {
   Content,
   TrendingText,
   TrendingVidoes,
-  TrendingHeader
+  TrendingHeader,
 } from "./HomeStyles";
 import Video from "../Video";
 
@@ -16,28 +16,50 @@ const Home = () => {
   const [trendingVideos, setTrendingVideos] = useState([]);
   const [activeVideo, setActiveVideo] = useState({
     poster_path: "",
-    backdrop_path: ""
+    backdrop_path: "",
+    overview: "",
+    original_title: "",
   });
 
   useEffect(() => {
     (async () => {
       try {
-        const data = await fetch(endpoint).then(resp => resp.json());
+        const data = await fetch(endpoint).then((resp) => resp.json());
         const vids = data.results.slice(0, 5);
-        const {poster_path, backdrop_path} = vids[0]
+        const {
+          poster_path,
+          backdrop_path,
+          overview,
+          original_title,
+        } = vids[0];
         setTrendingVideos(vids);
 
-        setActiveVideo({poster_path, backdrop_path});
+        setActiveVideo({
+          poster_path,
+          backdrop_path,
+          overview,
+          original_title,
+        });
       } catch (error) {
         console.error(error);
       }
     })();
   }, []);
 
-  const getActiveVideo = id => {
-    const activeVid = trendingVideos.filter(vid => vid.id === id);
-    const { poster_path, backdrop_path } = activeVid[0];
-    setActiveVideo({ poster_path, backdrop_path });
+  const getActiveVideo = (id) => {
+    const activeVid = trendingVideos.filter((vid) => vid.id === id);
+    const {
+      poster_path,
+      backdrop_path,
+      overview,
+      original_title,
+    } = activeVid[0];
+    setActiveVideo(() => ({
+      poster_path,
+      backdrop_path,
+      overview,
+      original_title,
+    }));
   };
 
   return (
@@ -64,6 +86,13 @@ const Home = () => {
               alt="trending-vid"
             />
           </picture>
+
+          <div className="overlay">
+            <div className="overview">
+              <h1>{activeVideo.original_title}</h1>
+              <p>{activeVideo.overview}</p>
+            </div>
+          </div>
         </section>
       </TrendingHeader>
 
@@ -71,7 +100,7 @@ const Home = () => {
         <TrendingText>Trending Videos</TrendingText>
 
         <TrendingVidoes>
-          {trendingVideos.map(vid => (
+          {trendingVideos.map((vid) => (
             <Video
               type="trending"
               key={vid.id}
