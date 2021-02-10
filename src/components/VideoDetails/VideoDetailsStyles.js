@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const MoviePoster = styled.img`
-  height: 100%;
+  height: 100vh;
   width: 100%;
   object-fit: cover;
   z-index: -10;
@@ -10,7 +10,7 @@ const MoviePoster = styled.img`
 `;
 
 const Video = styled.div`
-   height: calc(100vh - 162px);
+  /* height: calc(100vh - 162px); */
 
   .backdrop {
     color: #eee;
@@ -25,20 +25,14 @@ const Video = styled.div`
       }
     }
 
-    @media (min-width: 992px) {
-      grid-template-columns: 1fr 1fr;
-    }
-
     @media (min-width: 576px) {
       .moreDetails {
         grid-template-columns: repeat(2, 1fr);
       }
     }
 
-    @media (min-width: 375px) {
-      .moreDetails {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    @media (min-width: 992px) {
+      grid-template-columns: 1fr 1fr;
     }
 
     display: grid;
@@ -55,6 +49,7 @@ const Video = styled.div`
       grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
       grid-gap: 15px;
       align-items: center;
+      margin-top: 1rem;
 
       .videoRating {
         color: #ddd;
@@ -103,13 +98,12 @@ const VideoInfo = styled.div`
   }
 
   p {
-    line-height: 1.5rem;
     font-size: 1.1rem;
   }
 
   .releaseDate {
-    font-size: 0.9rem;
-    margin-top: -2.2rem;
+    font-size: 1rem;
+    margin: 0.5rem 0 1.5rem;
     color: #999;
   }
 
@@ -121,22 +115,16 @@ const VideoInfo = styled.div`
 
 const VideoTrailer = styled.div`
   iframe {
-    width: 100%;
-    height: 600px;
-
-    @media (max-width: 600px) {
-      width: 576px;
-      height: 450px;
-    }
+    width: min(800px, 90vw);
+    height: 500px;
 
     @media (max-width: 400px) {
-      width: 378px;
       height: 300px;
     }
   }
 
   left: 0px;
-  top: 90px;
+  top: 5vh;
   z-index: 100;
   position: absolute;
   width: 100%;

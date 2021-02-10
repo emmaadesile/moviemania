@@ -4,8 +4,10 @@ import styled from "styled-components";
 // Loader Reference: https://codepen.io/hafizfattah/pen/AbBtc
 const Loading = styled.div`
   margin: 200px auto;
-  min-height: 100vh;
 
+  .loader {
+    margin: 200px auto;
+  }
   h1 {
     font-family: "Actor", sans-serif;
     color: #fff;
@@ -13,9 +15,8 @@ const Loading = styled.div`
     letter-spacing: 1px;
     font-weight: 200;
     text-align: center;
-  
-
-  span {
+  }
+  .loader span {
     width: 16px;
     height: 16px;
     border-radius: 50%;
@@ -28,16 +29,21 @@ const Loading = styled.div`
     -o-animation: 3s infinite linear;
   }
 
-  span:nth-child(2) {
+  .loader span:nth-child(2) {
     background: #e84c3d;
     -webkit-animation: kiri 1.2s infinite linear;
     -moz-animation: kiri 1.2s infinite linear;
     -o-animation: kiri 1.2s infinite linear;
   }
-
-  span:nth-child(3) {
+  .loader span:nth-child(3) {
     background: #f1c40f;
     z-index: 100;
+  }
+  .loader span:nth-child(4) {
+    background: #2fcc71;
+    -webkit-animation: kanan 1.2s infinite linear;
+    -moz-animation: kanan 1.2s infinite linear;
+    -o-animation: kanan 1.2s infinite linear;
   }
 
   @-webkit-keyframes kanan {
@@ -54,20 +60,20 @@ const Loading = styled.div`
       z-index: 200;
     }
   }
-
   @-moz-keyframes kanan {
     0% {
       -moz-transform: translateX(20px);
     }
+
     50% {
       -moz-transform: translateX(-20px);
     }
+
     100% {
       -moz-transform: translateX(20px);
       z-index: 200;
     }
   }
-
   @-o-keyframes kanan {
     0% {
       -o-transform: translateX(20px);
@@ -108,7 +114,6 @@ const Loading = styled.div`
       -moz-transform: translateX(-20px);
     }
   }
-
   @-o-keyframes kiri {
     0% {
       -o-transform: translateX(-20px);
@@ -125,10 +130,12 @@ const Loading = styled.div`
 
 const Loader = () => (
   <Loading>
-    <h1>LOADING</h1>
-    <span />
-    <span />
-    <span />
+    <div class="loader">
+      <h1>LOADING</h1>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
   </Loading>
 );
 

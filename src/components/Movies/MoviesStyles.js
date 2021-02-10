@@ -22,10 +22,11 @@ const HeroImage = styled.div`
 const MovieGridContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  grid-gap: 20px;
+  grid-gap: 1.5rem;
+  grid-column-gap: 2rem; 
   justify-items: center;
   align-items: start;
-  background: white;
+  background: #000;
   margin: -80px 0 auto;
   z-index: 1000;
   padding: 30px 20px;

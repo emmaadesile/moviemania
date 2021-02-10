@@ -7,21 +7,20 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 60px;
-  margin-bottom: 40px;
+  margin-bottom: 3rem;
 `;
 
 const Button = styled.button`
-  font-family: "DINNextW01-Bold";
   font-weight: 600;
-  font-size: 1em;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 2px;
   border: 1px solid #ddd;
   padding: 15px 70px;
   cursor: pointer;
   color: grey;
-  background: #fff;
-  background-image:  linear-gradient(
+  background: #000;
+  background-image: linear-gradient(
     to left,
     transparent,
     transparent 50%,
@@ -38,9 +37,9 @@ const Button = styled.button`
   }
 `;
 
-const LoadMore = props => (
+const LoadMore = ({ disabled, handleClick }) => (
   <Container>
-    <Button disabled={props.disabled} onClick={props.handleClick}>
+    <Button disabled={disabled} onClick={handleClick}>
       Load More
     </Button>
   </Container>

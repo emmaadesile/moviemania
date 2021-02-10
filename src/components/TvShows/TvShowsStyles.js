@@ -25,7 +25,7 @@ const TvShowGridContainer = styled.div`
   grid-gap: 20px;
   justify-items: center;
   align-items: start;
-  background: white;
+  background: #000;
   margin: -80px 0 auto;
   z-index: 1000;
   padding: 30px 20px;

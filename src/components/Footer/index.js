@@ -8,9 +8,9 @@ const Background = styled.div`
   text-align: center;
   display: grid;
   place-items: center;
-  position: fixed;
+  /* position: fixed;
   bottom: 0;
-  left: 0;
+  left: 0; */
   width: 100%;
 
   a {
@@ -22,7 +22,7 @@ const Background = styled.div`
 const Footer = () => (
   <Background>
     <p>
-      Made with by <a href="https://twitter.com/emma_adesile">Davinći</a>
+      Made by <a href="https://twitter.com/emma_adesile">Emmanuel</a>
     </p>
   </Background>
 );

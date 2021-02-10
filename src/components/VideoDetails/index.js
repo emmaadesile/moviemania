@@ -1,4 +1,4 @@
-/* eslint-disable */ 
+/* eslint-disable */
 import React, { useState, useEffect } from "react";
 import { format } from "date-fns";
 import Loader from "../Loader";
@@ -8,7 +8,7 @@ import {
   PlayButton,
   VideoInfo,
   VideoTrailer,
-  MoviePoster
+  MoviePoster,
 } from "./VideoDetailsStyles";
 import ErrorBoundary from "../../ErrorBoundary";
 
@@ -29,14 +29,14 @@ const getVideoProps = () => {
   return { videoDetailsEndpoint, videoTrailerEndpoint };
 };
 
-const VideoDetails = props => {
+const VideoDetails = (props) => {
   const initialVideoDetails = {
     vote_average: "",
     backdrop_path: "",
     overview: "",
     videoTitle: "",
     releaseDate: "",
-    trailerId: ""
+    trailerId: "",
   };
   const { videoDetailsEndpoint, videoTrailerEndpoint } = getVideoProps();
 
@@ -47,7 +47,7 @@ const VideoDetails = props => {
 
   useEffect(() => {
     // store video details
-    const storeVideoDetails = data => {
+    const storeVideoDetails = (data) => {
       const {
         vote_average,
         backdrop_path,
@@ -55,11 +55,11 @@ const VideoDetails = props => {
         original_name,
         title,
         first_air_date,
-        release_date
+        release_date,
       } = data[0];
 
       const {
-        videos: { results }
+        videos: { results },
       } = data[1];
 
       const trailerId = results[0].key;
@@ -85,15 +85,15 @@ const VideoDetails = props => {
         overview,
         videoTitle,
         releaseDate,
-        trailerId
+        trailerId,
       });
-    }
+    };
 
     const fetchVideoDetails = async () => {
       try {
         const fetchedVideoDetails = await Promise.all([
-          fetch(videoDetailsEndpoint).then(resp => resp.json()),
-          fetch(videoTrailerEndpoint).then(resp => resp.json())
+          fetch(videoDetailsEndpoint).then((resp) => resp.json()),
+          fetch(videoTrailerEndpoint).then((resp) => resp.json()),
         ]);
 
         storeVideoDetails(fetchedVideoDetails);
@@ -107,18 +107,18 @@ const VideoDetails = props => {
   }, [videoDetailsEndpoint, videoTrailerEndpoint, props]);
 
   useEffect(() => {
-    const onEscapeKeyPress = event => {
+    const onEscapeKeyPress = (event) => {
       if (event.keyCode === 27) {
         if (!showVideoTrailer) return;
-        setShowVideoTrailer(false)
+        setShowVideoTrailer(false);
       }
-    }
-    window.addEventListener('keydown', onEscapeKeyPress);
+    };
+    window.addEventListener("keydown", onEscapeKeyPress);
 
     return () => {
-      window.removeEventListener('keydown', onEscapeKeyPress)
-    }
-  })
+      window.removeEventListener("keydown", onEscapeKeyPress);
+    };
+  });
 
   const {
     backdrop_path,
@@ -126,8 +126,10 @@ const VideoDetails = props => {
     overview,
     releaseDate,
     vote_average,
-    trailerId
+    trailerId,
   } = videoDetails;
+
+  console.log({ showVideoTrailer });
 
   return (
     <>
@@ -168,7 +170,11 @@ const VideoDetails = props => {
             </div>
           </Video>
           {showVideoTrailer && (
-            <VideoTrailer>
+            <VideoTrailer
+              onClick={() =>
+                showVideoTrailer ? setShowVideoTrailer(false) : null
+              }
+            >
               <div className="closeTrailer">
                 <i
                   role="button"

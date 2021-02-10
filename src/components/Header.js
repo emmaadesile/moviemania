@@ -18,14 +18,19 @@ const HeroImage = styled.header`
   }
 `;
 
-const Header = type => {
+const getRandomNumber = () => {
+  return Math.floor(Math.random() * 10) + 1;
+};
+
+const Header = ({ type }) => {
   const [headerImage, setHeaderImage] = useState("");
   const endpoint = `https://api.themoviedb.org/3/trending/${type}/day?api_key=${key}`;
   useEffect(() => {
     (async () => {
       try {
-        const imgUrl = await fetch(endpoint).then(resp => resp.json());
-        setHeaderImage(imgUrl.results[0].backdrop_path);
+        const imgUrl = await fetch(endpoint).then((resp) => resp.json());
+        const imgIndex = getRandomNumber();
+        setHeaderImage(imgUrl.results[imgIndex].backdrop_path);
       } catch (error) {
         console.log(error);
       }
@@ -37,6 +42,7 @@ const Header = type => {
       <img
         src={`https://image.tmdb.org/t/p/original/${headerImage}`}
         alt="header-img"
+        loading="lazy"
       />
     </HeroImage>
   );
