@@ -1,14 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "@reach/router";
-import useDataAPI from "../../useDataApi";
-import { ContainerFluid, TvShowGridContainer, Wrapper } from "./TvShowsStyles";
+
+import useDataAPI from "../../useData";
+
 import Video from "../Video";
 import Loader from "../Loader";
 import Header from "../Header";
-import LoadMore from "../LoadMore";
+import LoadMore from "../LoadMoreButton";
+
+import {
+  Wrapper,
+  ContainerFluid,
+  VideoGridContainer,
+} from "../../styles/videoStyles";
 
 const TvShows = () => {
-  const [videos, isError] = useDataAPI("tv");
+  const [page, setPage] = useState(1);
+  const [videos, isError] = useDataAPI("tv", page);
+
+  const handleLoadMore = () => {
+    if (page <= 5) {
+      setPage(page + 1);
+    }
+  };
 
   return (
     <Wrapper>
@@ -19,14 +33,14 @@ const TvShows = () => {
         <>
           <Header type="tv" />
           <ContainerFluid>
-            <TvShowGridContainer>
-              {videos.map(show => (
-                <Link to={`/tv/${show.id}`} key={show.id}>
+            <VideoGridContainer>
+              {videos.map((show, index) => (
+                <Link to={`/tv/${show.id}`} key={index}>
                   <Video key={show.id} type="tv" video={show} />
                 </Link>
               ))}
-            </TvShowGridContainer>
-            {/* <LoadMore disabled={page === 5} handleClick={handleLoadMore} /> */}
+            </VideoGridContainer>
+            <LoadMore disabled={page === 5} handleClick={handleLoadMore} />
           </ContainerFluid>
         </>
       )}

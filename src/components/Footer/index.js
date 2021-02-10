@@ -8,9 +8,6 @@ const Background = styled.div`
   text-align: center;
   display: grid;
   place-items: center;
-  /* position: fixed;
-  bottom: 0;
-  left: 0; */
   width: 100%;
 
   a {

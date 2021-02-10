@@ -1,71 +1,28 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "@reach/router";
-import axios from "axios";
+
+import useDataAPI from "../../useData";
+
 import Video from "../Video";
 import Loader from "../Loader";
-import LoadMore from "../LoadMore";
+import LoadMore from "../LoadMoreButton";
 import Header from "../Header";
-import { Wrapper, ContainerFluid, MovieGridContainer } from "./MoviesStyles";
 
-const apiKey = process.env.REACT_APP_TMDB_API_KEY;
-const baseURL = process.env.REACT_APP_BASE_URL;
+import {
+  Wrapper,
+  ContainerFluid,
+  VideoGridContainer,
+} from "../../styles/videoStyles";
 
 function Movies() {
-  const [videos, setVideos] = useState([]);
-  const [isError, setIsError] = useState(false);
   const [page, setPage] = useState(1);
+  const [videos, isError] = useDataAPI("movie", page);
 
-  const endpoint = `${baseURL}/discover/movie?api_key=${apiKey}&language=en-US&sort_by=popularity.desc&page=${page}`;
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const fetchedVideos = await axios(endpoint);
-        storeVideos(fetchedVideos.data.results);
-      } catch (error) {
-        setIsError(true);
-      }
-    })();
-  }, [endpoint, page]);
-
-  function storeVideos(data) {
-    const storedVideos = data.map(
-      ({
-        title,
-        vote_count,
-        id,
-        genre_ids,
-        poster_path,
-        original_name,
-        vote_average,
-        first_air_date,
-        release_date
-      }) => ({
-        title,
-        vote_count,
-        id,
-        genre_ids,
-        poster_path,
-        original_name,
-        vote_average,
-        first_air_date,
-        release_date
-      })
-    );
-
-    if (videos.length !== 0) {
-      setVideos(videos.concat(storedVideos));
-    } else {
-      setVideos(storedVideos);
-    }
-  }
-
-  function handleLoadMore() {
+  const handleLoadMore = () => {
     if (page <= 5) {
       setPage(page + 1);
     }
-    return;
-  }
+  };
 
   return (
     <Wrapper>
@@ -76,13 +33,13 @@ function Movies() {
         <>
           <Header type="movie" />
           <ContainerFluid>
-            <MovieGridContainer>
-              {videos.map(movie => (
-                <Link to={`/movie/${movie.id}`} key={movie.id}>
-                  <Video key={movie.id} type="movie" video={movie} />
+            <VideoGridContainer>
+              {videos.map((movie, index) => (
+                <Link to={`/movie/${movie.id}`} key={index}>
+                  <Video type="movie" video={movie} />
                 </Link>
               ))}
-            </MovieGridContainer>
+            </VideoGridContainer>
             <LoadMore disabled={page === 5} handleClick={handleLoadMore} />
           </ContainerFluid>
         </>

@@ -1,24 +1,27 @@
-import React, {Component} from 'react';
-import {Link} from '@reach/router';
+import React, { Component } from "react";
+import { Link } from "@reach/router";
 
 class ErrorBoundary extends Component {
-  state = { hasError: false}
+  state = { hasError: false };
 
   static getDerivedStateFromError() {
-    return {hasError: true}
+    return { hasError: true };
   }
 
   componentDidCatch(error, info) {
-    console.log('An error occured in the component', error, info)
+    console.log("An error occured in the component", error, info);
   }
 
   render() {
     if (this.state.hasError) {
       return (
         <div>
-          <h2>An error occurred while making the request. Click <Link to='/'>here</Link>to go home</h2>
+          <h2>
+            An error occurred while making the request. Click{" "}
+            <Link to="/">here</Link>to go home
+          </h2>
         </div>
-      )
+      );
     }
     return this.props.children;
   }

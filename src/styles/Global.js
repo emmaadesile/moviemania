@@ -10,7 +10,6 @@ const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "DINNextW01Bold";
     src: url(${DINNextW01Bold}) format("opentype"),
-    /* url(${DINNextW01Bold}) format("opentype"); */
   }
 
   *,

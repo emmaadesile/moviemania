@@ -34,15 +34,7 @@ const TrendingHeader = styled.header`
   overflow-y: hidden;
   position: relative;
 
-  img {
-    /* background-size: cover; */
-  }
-
-  .feature1 {
-  }
-
   .feature2 {
-    /* width: 530px; */
 
     .overlay {
       position: absolute;
@@ -74,13 +66,10 @@ const TrendingHeader = styled.header`
         width: 40rem;
         font-size:  1.2rem;
       }
-      /* height: 100%;
-      display: flex;
-      align-items: flex-end; */
     }
   }
 
-  @media screen and (max-width: 520px) {
+  @media (max-width: 520px) {
     grid-template-columns: 1fr;
     height: 300px;
 
@@ -88,16 +77,6 @@ const TrendingHeader = styled.header`
       display: none;
     }
   }
-`;
-
-const TrailerWrapper = styled.div`
-  position: absolute;
-  bottom: 20px;
-`;
-
-const PlayButton = styled.div`
-  width: 50px;
-  border-radius: 50%;
 `;
 
 const TrendingText = styled.h1`
@@ -114,7 +93,6 @@ const TrendingVidoes = styled.section`
   grid-gap: 20px;
   justify-items: center;
   align-items: start;
-  /* background: white; */
   margin: -80px 0 auto;
   z-index: 1000;
   padding: 20px;

@@ -22,28 +22,36 @@ const Home = () => {
   });
 
   useEffect(() => {
-    (async () => {
-      try {
-        const data = await fetch(endpoint).then((resp) => resp.json());
-        const vids = data.results.slice(0, 5);
-        const {
-          poster_path,
-          backdrop_path,
-          overview,
-          original_title,
-        } = vids[0];
-        setTrendingVideos(vids);
+    let isFetching = true;
 
-        setActiveVideo({
-          poster_path,
-          backdrop_path,
-          overview,
-          original_title,
-        });
-      } catch (error) {
-        console.error(error);
+    (async () => {
+      if (isFetching) {
+        try {
+          const data = await fetch(endpoint).then((resp) => resp.json());
+          const vids = data.results.slice(0, 5);
+          const {
+            poster_path,
+            backdrop_path,
+            overview,
+            original_title,
+          } = vids[0];
+          setTrendingVideos(vids);
+
+          setActiveVideo({
+            poster_path,
+            backdrop_path,
+            overview,
+            original_title,
+          });
+        } catch (error) {
+          console.error(error);
+        }
       }
     })();
+
+    return () => {
+      isFetching = false;
+    };
   }, []);
 
   const getActiveVideo = (id) => {

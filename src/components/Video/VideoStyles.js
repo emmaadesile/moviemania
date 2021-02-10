@@ -19,17 +19,25 @@ const VideoInfo = styled.div`
 
   .movieTitle {
     font-weight: 300;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: #cecece;
+
+    @media (min-width: 640px) {
+      font-size: 1.2rem;
+    }
   }
   .releaseDate {
     font-weight: 300;
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: grey;
     margin-top: 0.5rem;
 
     &:hover {
       color: grey !important;
+    }
+
+    @media (min-width: 640px) {
+      font-size: 1rem;
     }
   }
 `;
