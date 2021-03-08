@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactElement } from "react";
 import styled from "styled-components";
 
 const Container = styled.div`
@@ -37,7 +37,12 @@ const Button = styled.button`
   }
 `;
 
-const LoadMore = ({ disabled, handleClick }) => (
+interface LoadMore {
+  disabled: boolean;
+  handleClick: (e: React.MouseEvent<HTMLButtonElement>) => void;
+}
+
+const LoadMore = ({ disabled, handleClick }: LoadMore): ReactElement => (
   <Container>
     <Button disabled={disabled} onClick={handleClick}>
       Load More

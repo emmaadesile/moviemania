@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App Navigation mounts 1`] = `
+<nav
+  class="sc-bdfBwQ cfMQXc"
+>
+  <div
+    class="sc-gsTCUz gSDmt"
+  >
+    <a
+      aria-current="page"
+      href="/"
+    >
+      <img
+        class="sc-hKgILt hoxxsm"
+        src="moviemania-logo.svg"
+      />
+    </a>
+  </div>
+  <div
+    class="sc-dlfnbm hMCISp"
+  >
+    <div
+      class="navItems"
+    >
+      <ul>
+        <li>
+          <a
+            href="/movies"
+          >
+            MOVIES
+          </a>
+        </li>
+        <li>
+          <a
+            href="/tv"
+          >
+            TV SHOWS
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;

@@ -1,12 +1,12 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { Link } from "@reach/router";
 
-import useDataAPI from "../../useData";
+import useDataAPI from "../../hooks/useData";
 
 import Video from "../Video";
 import Loader from "../Loader";
-import LoadMore from "../LoadMoreButton";
 import Header from "../Header";
+import LoadMore from "../LoadMoreButton";
 
 import {
   Wrapper,
@@ -14,11 +14,11 @@ import {
   VideoGridContainer,
 } from "../../styles/videoStyles";
 
-function Movies() {
+const TvShows: FC = () => {
   const [page, setPage] = useState(1);
-  const [videos, isError] = useDataAPI("movie", page);
+  const [videos, isError] = useDataAPI("tv", page);
 
-  const handleLoadMore = () => {
+  const handleLoadMore = ():void => {
     if (page <= 5) {
       setPage(page + 1);
     }
@@ -31,12 +31,12 @@ function Movies() {
         <Loader />
       ) : (
         <>
-          <Header type="movie" />
+          <Header type="tv" />
           <ContainerFluid>
             <VideoGridContainer>
-              {videos.map((movie, index) => (
-                <Link to={`/movie/${movie.id}`} key={index}>
-                  <Video type="movie" video={movie} />
+              {videos.map((show, index) => (
+                <Link to={`/tv/${show.id}`} key={index}>
+                  <Video key={show.id} type="tv" video={show} />
                 </Link>
               ))}
             </VideoGridContainer>
@@ -46,6 +46,6 @@ function Movies() {
       )}
     </Wrapper>
   );
-}
+};
 
-export default Movies;
+export default TvShows;

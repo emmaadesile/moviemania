@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import styled, { keyframes } from "styled-components";
 
 // Loader Reference: https://codepen.io/hafizfattah/pen/AbBtc
@@ -57,7 +57,7 @@ const Loading = styled.div`
   }
 `;
 
-const Loader = () => (
+const Loader:FC = () => (
   <Loading>
     <div className="loader">
       <h1>LOADING</h1>

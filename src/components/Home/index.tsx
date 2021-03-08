@@ -6,15 +6,16 @@ import {
   TrendingVidoes,
   TrendingHeader,
 } from "./HomeStyles";
-import Video from "../Video";
+import Video, { VideoProps } from "../Video";
 
 const key = process.env.REACT_APP_TMDB_API_KEY;
 const type = "movie";
 const endpoint = `https://api.themoviedb.org/3/trending/${type}/day?api_key=${key}`;
 
-const Home = () => {
-  const [trendingVideos, setTrendingVideos] = useState([]);
-  const [activeVideo, setActiveVideo] = useState({
+const Home: React.FC = () => {
+  const [trendingVideos, setTrendingVideos] = useState<VideoProps[]>([]);
+  const [activeVideo, setActiveVideo] = useState<VideoProps>({
+    id: "",
     poster_path: "",
     backdrop_path: "",
     overview: "",
@@ -27,8 +28,10 @@ const Home = () => {
     (async () => {
       if (isFetching) {
         try {
-          const data = await fetch(endpoint).then((resp) => resp.json());
-          const vids = data.results.slice(0, 5);
+          const { results }: { results: VideoProps[] } = await fetch(
+            endpoint
+          ).then((resp) => resp.json());
+          const vids = results.slice(0, 5);
           const {
             poster_path,
             backdrop_path,
@@ -54,7 +57,7 @@ const Home = () => {
     };
   }, []);
 
-  const getActiveVideo = (id) => {
+  const getActiveVideo = (id: string) => {
     const activeVid = trendingVideos.filter((vid) => vid.id === id);
     const {
       poster_path,
@@ -110,10 +113,10 @@ const Home = () => {
         <TrendingVidoes>
           {trendingVideos.map((vid) => (
             <Video
-              type="trending"
               key={vid.id}
+              type="trending"
               video={vid}
-              onClickHandler={() => getActiveVideo(vid.id)}
+              onClickHandler={() => getActiveVideo(vid.id as string)}
             />
           ))}
         </TrendingVidoes>
