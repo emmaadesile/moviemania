@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FC, useState } from "react";
 import { Link } from "@reach/router";
 
 import useDataAPI from "../../useData";
@@ -14,11 +14,11 @@ import {
   VideoGridContainer,
 } from "../../styles/videoStyles";
 
-const TvShows = () => {
+const TvShows: FC = () => {
   const [page, setPage] = useState(1);
   const [videos, isError] = useDataAPI("tv", page);
 
-  const handleLoadMore = () => {
+  const handleLoadMore = ():void => {
     if (page <= 5) {
       setPage(page + 1);
     }
