@@ -45,7 +45,7 @@
     "babel-preset-react": "^6.24.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "gh-pages": "^2.0.1",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "prettier": "^2.2.1",
     "prop-types": "^15.7.2",
     "styled-components": "^5.2.1"
